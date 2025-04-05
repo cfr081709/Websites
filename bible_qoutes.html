@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Qoutes</title>
+    <style>
+        body {
+            font-family: Dancing Script, cursive;
+            font-size: 20px;
+            background-color:#CED3DC;
+            margin: 0;
+            padding: 20px;
+        }
+        header{
+           background-color: #4E8098;
+           color: #FCF7F8;
+             width: 100%;
+            height: auto;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            border-color: #90C2E7;
+            border-style: dotted;
+            font-family: Dancing Script, cursive;
+            font-size: 20px;
+            border-width: 5px;
+
+        }
+
+        .box_qoute {
+            background-color: #4E8098;
+            width: auto;
+            height: auto;
+            border-radius: 10px;
+            padding: 0;
+            margin: 0;
+            border-color: #90C2E7;
+            border-style: dotted;
+            border-width: 5px;
+            color: #FCF7F8;
+            font-family: Dancing Script, cursive;
+            font-size: 20px;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .bible_generator_btn {
+            background-color: #4E8098;
+            color: #FCF7F8;
+            border-style: dotted;
+            border-color: #90C2E7;
+            border-width: 5px;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            margin: 0;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #4E8098;
+            color: #FCF7F8;
+            width: 100%;
+            height: auto;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            border-color: #90C2E7;
+            border-style: dotted;
+            font-family: Dancing Script, cursive;
+            font-size: 20px;
+            border-width: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bible Qoutes</h1>
+        <h2>Inspirational Bible Verses</h2>
+    </header>
+<br>
+<section class="box_qoute">
+<h1 style="text-align: center;">Your Bible Qoute:</h1>
+<p id="verse" style="text-align: center; font-size: 20px; color: #FCF7F8;">Hit the button</p>
+<br>
+<br>
+<button class="bible_generator_btn" onclick="getRandomQuote()" ;>Generate a Bible Qoute</button>
+<br>
+</section>
+<br>
+<footer>
+<h1>Glory be to God as it was in the beggining is now and ever shall be</h1>
+</footer>
+
+<script>
+    const quotes = [
+    "For I know the plans I have for you, declares the Lord, plans for welfare and not for evil, to give you a future and a hope. (Jeremiah 29:11)",
+    "The Lord is my shepherd; I shall not want. (Psalm 23:1)",
+    "I can do all things through him who strengthens me. (Philippians 4:13)",
+    "For God so loved the world, that he gave his only Son, that whoever believes in him should not perish but have eternal life. (John 3:16)",
+    "The Lord is near to the brokenhearted and saves the crushed in spirit. (Psalm 34:18)",
+    "But the fruit of the Spirit is love, joy, peace, forbearance, kindness, goodness, faithfulness, gentleness and self-control. (Galatians 5:22-23)",
+    "And we know that in all things God works for the good of those who love him, who have been called according to his purpose. (Romans 8:28)",
+    "The Lord is my light and my salvation; whom shall I fear? The Lord is the stronghold of my life; of whom shall I be afraid? (Psalm 27:1)",
+    "Cast all your anxiety on him because he cares for you. (1 Peter 5:7)",
+    "For the Lord your God is with you wherever you go. (Joshua 1:9)",
+    "Even though I walk through the darkest valley, I will fear no evil, for you are with me; your rod and your staff, they comfort me. (Psalm 23:4)",
+    "But the Lord is faithful, and he will strengthen you and protect you from the evil one. (2 Thessalonians 3:3)",
+    "The Lord will fight for you; you need only to be still. (Exodus 14:14)",
+    "Jesus Christ is the same yesterday and today and forever. (Hebrews 13:8)",
+    "For the wages of sin is death, but the gift of God is eternal life in Christ Jesus our Lord. (Romans 6:23)",
+    "The righteous cry out, and the Lord hears them; he delivers them from all their troubles. (Psalm 34:17)",
+    "The earth is the Lord’s, and everything in it, the world, and all who live in it. (Psalm 24:1)",
+    "He will cover you with his feathers, and under his wings you will find refuge; his faithfulness will be your shield and rampart. (Psalm 91:4)",
+    "Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight. (Proverbs 3:5-6)",
+    "And we know that in all things God works for the good of those who love him, who have been called according to his purpose. (Romans 8:28)",
+    "The Lord is my light and my salvation; whom shall I fear? The Lord is the stronghold of my life; of whom shall I be afraid? (Psalm 27:1)",
+    "If you declare with your mouth, 'Jesus is Lord,' and believe in your heart that God raised him from the dead, you will be saved. (Romans 10:9)",
+    "So do not fear, for I am with you; do not be dismayed, for I am your God. I will strengthen you and help you; I will uphold you with my righteous right hand. (Isaiah 41:10)",
+    "The Lord is close to the brokenhearted and saves those who are crushed in spirit. (Psalm 34:18)",
+    "Come to me, all you who are weary and burdened, and I will give you rest. (Matthew 11:28)",
+    "For I am convinced that neither death nor life, neither angels nor demons, neither the present nor the future, nor any powers, (Romans 8:38)",
+    "And my God will meet all your needs according to the riches of his glory in Christ Jesus. (Philippians 4:19)",
+    "For the Lord gives wisdom; from his mouth come knowledge and understanding. (Proverbs 2:6)",
+    "But the fruit of the Spirit is love, joy, peace, forbearance, kindness, goodness, faithfulness, gentleness and self-control. (Galatians 5:22-23)",
+    "Do not be afraid, for I am with you; I will bring your children from the east and gather you from the west. (Isaiah 43:5)",
+    "I will never leave you nor forsake you. (Hebrews 13:5)",
+    "The Lord is good to those who wait for him, to the soul who seeks him. (Lamentations 3:25)",
+    "The name of the Lord is a fortified tower; the righteous run to it and are safe. (Proverbs 18:10)",
+    "But the Lord is with me like a mighty warrior. (Jeremiah 20:11)",
+    "God is our refuge and strength, an ever-present help in trouble. (Psalm 46:1)",
+    "The Lord is compassionate and gracious, slow to anger, abounding in love. (Psalm 103:8)",
+    "I will bless the Lord at all times; his praise shall continually be in my mouth. (Psalm 34:1)",
+    "But the Lord stood at my side and gave me strength. (2 Timothy 4:17)",
+    "Let the peace of Christ rule in your hearts, since as members of one body you were called to peace. (Colossians 3:15)",
+    "Be still, and know that I am God. (Psalm 46:10)",
+    "The Lord is my rock, my fortress, and my deliverer. (Psalm 18:2)",
+    "For nothing will be impossible with God. (Luke 1:37)",
+    "I have told you these things, so that in me you may have peace. (John 16:33)",
+    "For the Lord God is a sun and shield; the Lord bestows favor and honor. (Psalm 84:11)",
+    "The Lord is my light and my salvation—whom shall I fear? (Psalm 27:1)",
+    "For we live by faith, not by sight. (2 Corinthians 5:7)",
+    "The Lord is good to those who hope in him, to the one who seeks him. (Lamentations 3:25)",
+    "Rejoice in the Lord always. I will say it again: Rejoice! (Philippians 4:4)",
+    "Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God. (Philippians 4:6)",
+    "The Lord is righteous in all his ways and faithful in all he does. (Psalm 145:17)",
+    "Let everything that has breath praise the Lord. (Psalm 150:6)",
+    "The joy of the Lord is your strength. (Nehemiah 8:10)",
+    "Your word is a lamp for my feet, a light on my path. (Psalm 119:105)",
+    "I will extol the Lord at all times; his praise will always be on my lips. (Psalm 34:1)",
+    "But those who hope in the Lord will renew their strength. (Isaiah 40:31)",
+    "The Lord is close to the brokenhearted and saves those who are crushed in spirit. (Psalm 34:18)",
+    "Cast your cares on the Lord and he will sustain you. (Psalm 55:22)",
+    "For God did not give us a spirit of timidity, but a spirit of power, of love and of self-discipline. (2 Timothy 1:7)",
+    "Do not let your hearts be troubled. You believe in God; believe also in me. (John 14:1)",
+    "Therefore, there is now no condemnation for those who are in Christ Jesus. (Romans 8:1)",
+    "For the eyes of the Lord are on the righteous, and his ears are attentive to their prayer. (1 Peter 3:12)",
+    "Peace I leave with you; my peace I give you. (John 14:27)"
+    ];
+
+    function getRandomQuote() {
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        const verse = quotes[randomIndex];
+        document.getElementById("verse").textContent = verse;
+    }
+</script>
+</body>
+</html>
