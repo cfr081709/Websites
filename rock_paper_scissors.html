@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <style>
+        body {
+            font-family: rockwell, sans-serif;
+            background-color: #223843;
+            color: #D77A61;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        header {
+            align-items: center;
+            background-color: #EFF1F3;
+            color: #D77A61;
+            text-align: center;
+            padding: 10px;
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .white_box {
+            background-color: #EFF1F3;
+            color: #D77A61;
+            width: 25%;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 20px auto;
+            border-color: #D77A61;
+            border-style: dashed;
+            text-align: center;
+        }
+
+        .play_button {
+            background-color: #EFF1F3;
+            color: #D77A61;
+            font-size: 20px;
+            border-radius: 10px;
+            width: 100px;
+            height: 40px;
+            padding: 5px;
+            border-color: #D77A61;
+            border-style: dashed;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .play_button:hover {
+            background-color: #D77A61;
+            color: #EFF1F3;
+        }
+
+        .result_box {
+            background-color: #EFF1F3;
+            color: #D77A61;
+            font-size: 20px;
+            width: 25%;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 20px auto;
+            border-color: #D77A61;
+            border-style: dashed;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #EFF1F3;
+            color: #D77A61;
+            text-align: center;
+            padding: 10px;
+            font-size: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .row_container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px auto;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Rock Paper Scissors</h1>
+    </header>
+
+    <div class="row_container">
+        <!-- Player's Choice -->
+        <section class="white_box" id="p_choice">
+            <h2>Player's choice:</h2>
+            <input type="text" id="playerInput" placeholder="Enter rock, paper, or scissors" required>
+        </section>
+
+        <!-- Fight Button -->
+        <section id="play_button">
+            <button class="play_button" id="play" onclick="playGame()">Fight!!</button>
+        </section>
+
+        <!-- Computer's Choice -->
+        <section class="white_box" id="c_choice">
+            <h2>Computer's choice:</h2>
+            <h2 id="computerChoice"></h2>
+        </section>
+    </div>
+
+    <!-- Results -->
+    <section class="result_box" id="result">
+        <h2 id="result">Result:</h2>
+    </section>
+
+    <!-- Score Keeper -->
+    <section class="white_box" id="score_keeper">
+        <h2 id="playerScore">Player Score: 0</h2>
+        <h2 id="computerScore">Computer Score: 0</h2>
+        <h2 id="tie">Ties: 0</h2>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Created by Christian Rafferty</p>
+    </footer>
+
+    <script>
+        const choices = ["rock", "paper", "scissors"];
+        let playerScore = 0;
+        let computerScore = 0;
+        let tieScore = 0;
+
+        // Function to get a random choice for the bot
+        const randomChoice = () => {
+            return choices[Math.floor(Math.random() * choices.length)];
+        };
+
+        // Function to get the player's choice
+        const playerChoice = () => {
+            const input = document.getElementById("playerInput").value.trim().toLowerCase();
+            if (choices.includes(input)) {
+                return input; // Return the valid choice
+            } else {
+                return null; // Return null if the input is invalid
+            }
+        };
+
+        // Function to play the game
+        const playGame = () => {
+            const player = playerChoice();
+            const bot = randomChoice();
+
+            if (!player) {
+                document.getElementById("result").textContent = "Invalid input! Please type rock, paper, or scissors.";
+                return;
+            }
+
+            let resultMessage = `Player chose ${player}, Computer chose ${bot}. `;
+
+            if (player === bot) {
+                resultMessage += "It's a tie!";
+                tieScore++;
+            } else if (
+                (player === "rock" && bot === "scissors") ||
+                (player === "paper" && bot === "rock") ||
+                (player === "scissors" && bot === "paper")
+            ) {
+                resultMessage += "You win!";
+                playerScore++;
+            } else {
+                resultMessage += "You lose!";
+                computerScore++;
+            }
+
+            // Update the result on the screen
+            document.getElementById("result").textContent = resultMessage;
+
+            // Update the computer's choice on the screen
+            document.getElementById("computerChoice").textContent = `Computer chose: ${bot}`;
+
+            // Update the scores on the screen
+            document.getElementById("playerScore").textContent = `Player Score: ${playerScore}`;
+            document.getElementById("computerScore").textContent = `Computer Score: ${computerScore}`;
+            document.getElementById("tie").textContent = `Ties: ${tieScore}`;
+        };
+    </script>
+</body>
+</html>
