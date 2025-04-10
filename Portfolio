@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    header {
+        background-color: #003459;
+        color: #00A8E8;
+        font-size: 20px;
+        font-family: serif;
+        align-items: center;
+        text-align: center;
+        padding: 15px;
+        width: auto;
+        height: auto;
+        margin: 0px;
+        border: solid 5px #FFFFFF;
+        border-radius: 15px;
+    }
+    body {
+        background-color: #00171F;
+        font-family: serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        background-color: #003459;
+        color: #00A8E8;
+        border-radius: 15px;
+        border: solid 5px #FFFFFF;
+        padding: 15px;
+        height: auto;
+        width: auto;
+        margin: 0px;
+        font-family: serif;
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .title_box {
+        background-color: #003459;
+        color: #00A8E8;
+        border-radius: 15px;
+        border: solid 5px #FFFFFF;
+        padding: 15px;
+        height: auto;
+        width: 250px;
+        margin: 0 auto; /* Center horizontally */
+        font-family: serif;
+        font-size: 15px;
+        text-align: center;
+        align-items: center;
+    }
+    
+    a {
+        color: #00A8E8;
+        text-decoration: none;
+        font-family: serif;
+        font-size: 15px;
+    }
+</style>
+<body>
+    <header>
+        <h1>Welcome to My Portfolio</h1>
+    </header>
+    <main>
+        <br><br>
+        <section class="box">
+            <h1>About the Site</h1>
+            <h4>Hello! This site will showcase some of my prjects and how I made them. It will also talk about me. The goal of this site to be able to present my skills to prespective bosses. Please feel free to contact me with any questions.</h4>
+        </section>
+        <br><br>
+        <section class="title_box"><h1>Website Projects</h1></section>
+        <br><br>
+        <section class="box">
+            <h1>Rock Paper Scissors Site</h1>
+            <h4>The rock, paper, scissors site is a bit of simpler one. It incorporates JS, HTML, and CSS. I used CSS to design the boxes and header with clashing vibrant colors. The HTML was used to add text and elements. Finally the JS was used to keep track of wins and losses, report back and win or loss, compare values, and randomize the computers choice. This project took me just under around 2 hours. This project though simple is one of my favorite.</h4>
+            <a href="https://github.com/cfr081709/Websites/blob/main/rock_paper_scissors.html">Link to Project on GitHub</a>
+        </section>
+        <br><br>
+        <section class="box">
+            <h1>Bible Site</h1>
+            <h4>The Bible Site was a project I was very passionate about. As a catholic I like to think of myself as a very faithful person. At the time of making this site St. Carlos Acutis was just being cannonized and he is the one who inspired me to make the site. The site is once again very simple consisting of just JS, CSS, and HTML. You hit a button made with HTML and generate a qoute, act of mercy, or prayer listed in JS.</h4>
+            <a href="https://github.com/cfr081709/Websites/blob/main/bibe_actsofm_prayer_generator.html">Link to Project on GitHub</a>
+        </section>
+        <br><br>
+        <section class="title_box"><h1>Python Projects</h1></section>
+        <br><br>
+        <section class="box">
+            <h1>Rock, Paper, Scissors Bot</h1>
+            <h4>This was one of my first ever python projects. It is extremely simple. The only imports it uses is random and time. Everything is in a x=1 loop but at the end of playing if the player says no x now equals 0. This was the basis for the website version of the game.</h4>
+            <a href="https://github.com/cfr081709/Python/blob/main/rockpaperscissor_good.py">Link to Project on Github</a>
+        </section>
+        <br><br>
+        <section class="box">
+            <h1>Expenses Tracker</h1>
+            <h4>This is one of my best python projects. It incorporate 3 basic imports those being math, time, and sys. All of the imports are included with python. You manually input data yourself and are then presented with the statistics. You get %, if you went negative you get a warning. There is much room for expansions with suggestions but I am not a financier.</h4>
+            <a href="https://github.com/cfr081709/Python/blob/main/expenses.py">Link to Project on GitHub</a>
+        </section>
+    </main>
+</body>
+</html>
